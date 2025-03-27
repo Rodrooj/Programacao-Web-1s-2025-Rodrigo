@@ -6,6 +6,16 @@ app.get('/ola', (req, res)=>{
     res.send('Ola mundo');
 })
 
+app.get('/', (req, res)=>{
+    let html = '<h1>App Calculadora</h1>';
+    html += '<h3>Rotas da Calculadora</h3>';
+    html += '<p>/somar/a/b</p>'
+    html += '<p>/subtrair/a/b</p>'
+    html += '<p>/multiplicar/a/b</p>'
+    html += '<p>/dividir/a/b</p>'
+    res.send(html);
+})
+
 app.get('/somar/:a/:b', (req, res) => {
     const resultado = calc.somar(Number(req.params.a), Number(req.params.b));
     res.send(`${req.params.a} + ${req.params.b} = ${resultado}`);
